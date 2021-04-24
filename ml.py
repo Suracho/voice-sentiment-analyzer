@@ -84,5 +84,4 @@ def sentiment_analysis(audio_path):
         
     z = most_frequent(results)
     emotion = {0:"Angry",1:"Happy",2:"Sad",3:"Fear",4:"Suprise",5:"Neutral"}
-    print(emotion.get(z))
-sentiment_analysis('temp/temp.wav')
+    return emotion.get(z)
