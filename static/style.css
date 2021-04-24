@@ -1,0 +1,23 @@
+.buttonthispage{
+   color:white;
+    background-color:crimson;
+    padding: 25px;
+    
+    font-size: 20px;
+    border-radius: 15px;
+    
+    margin: auto;
+}
+.buttonthatpage{
+    color: white;
+    background-color: crimson;
+    padding: 25px;
+    
+    border-radius: 15px;
+    font-size: 20px;
+    margin:auto;
+}
+body{
+    background-color:rgb(107, 107, 201);
+}
+

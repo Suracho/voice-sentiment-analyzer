@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Sentiment Analyzer</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">  
+</head>
+<body>
+    <div id="upload_space">
+        <label for="audio_file">Select audio</label>
+        <input type="file" id="audio_file" name="myfile" multiple>
+        <br>
+        <button class="buttonthatpage" onclick="performSentiment()">Get Emotion?</button>
+    </div>
+    <div> <a href="/"><button class="buttonthatpage">Recording bitch</button></a></div>
+</body>
+<script>function performSentiment(){
+    var files = document.getElementById("audio_file").files
+    var formData = new FormData();
+    var endpoint = '/analysis';
+    formData.append('audio', files[0])
+    $.ajax({
+    type: 'POST',
+    url: endpoint,
+    data: formData,
+    contentType: false,
+    cache: false,
+    processData: false,
+    success: function(data) {
+      swal("Your Emotion is", data.text);
+    }
+});
+    }</script>
+</html>
